@@ -1,6 +1,6 @@
 # Documentación de mi entorno de desarrollo · Práctica 2
 
-**Nombre y apellidos:**
+**Nombre y apellidos: Dolores Aguilera Carrasco**
 **URL de mi repositorio:**
 
 > Rellena cada apartado a medida que avanzas. Donde pone «pega aquí», copia el texto
@@ -42,9 +42,9 @@ pega aquí
 
 |                                         | Editor de GitHub Codespaces | JupyterLab |
 |-----------------------------------------|-----------------------------|------------|
-| ¿Libre o propietario?                   |                             |            |
+| ¿Libre o propietario?                   |       Libre                 |            |
 | Licencia / empresa o comunidad          |                             |            |
-| ¿Tiene coste? ¿Con qué límites?         |                             |            |
+| ¿Tiene coste? ¿Con qué límites?         |     NO                      |            |
 | ¿Se puede usar fuera de GitHub?         |                             |            |
 | Lo que más me ha gustado                |                             |            |
 | Lo que menos me ha gustado              |                             |            |
@@ -56,18 +56,18 @@ pega aquí
 
 | Extensión | ¿Para qué sirve? | ¿Qué cambió al instalarla? | ¿La mantengo? ¿Por qué? |
 |-----------|------------------|----------------------------|-------------------------|
-| Extension Pack for Java |   |   |   |
-| Code Spell Checker      |   |   |   |
+| Extension Pack for Java Para poder programar en java|  Pude abrir documento java |  Si | Porque sin ella no podría compilar el código  |
+| Code Spell Checker    Para corregir ortografía  | Líneas rojas    |  No |  Porque es molesto tener tanatas líneas que parecen que están mal |
 
 ¿Qué diferencia hay entre instalar una extensión **solo desde el panel** y añadirla **también a `devcontainer.json`**?
 
-> 
+> Solo desde el panel la guarda únicamente en tu ordenador, por lo que tendrás que volver a buscarla a mano si cambias de equipo o reconstruyes tu contenedor. Añadirla a devcontainer.json la guarda en el código del proyecto, así la instale automáticamente para ti y para cualquier compañero al abrir el entorno.
 
 ---
 
 ## 3. Personalización y automatización (CE 2.c)
 
-- **Tema visual elegido** (paso 10) y por qué:
+- **Tema visual elegido** (paso 10) y por qué: Oscuro 2026, porque lo prefiero por la vista
 - **Ajuste del proyecto** (paso 10). ¿Qué archivo se ha creado y qué contiene?
 
 ```
@@ -76,10 +76,10 @@ pega aquí
 }
 ```
 
-- **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve?
-- **Snippet** (paso 12). ¿Qué escribes y qué aparece?
-- **Automatización al crear el entorno** (paso 14). ¿Qué hace `postCreateCommand` y qué archivos/carpetas han aparecido después de reconstruir?
-- **Tareas** (paso 13). ¿Cuántas tareas hay en `tasks.json` y qué hace cada una?
+- **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve? Ctrl + Alt + R Para reconstruir
+- **Snippet** (paso 12). ¿Qué escribes y qué aparece? Se escribe cabecera y aparece mis datos personales
+- **Automatización al crear el entorno** (paso 14). ¿Qué hace `postCreateCommand` y qué archivos/carpetas han aparecido después de reconstruir? postCreateCommand ejecuta comandos como instalar dependencias justo después de crear el contenedor. Al reconstruir, aparece carpetas generados por esos comandos.
+- **Tareas** (paso 13). ¿Cuántas tareas hay en `tasks.json` y qué hace cada una? 3 tareas "label": "Java: compilar, empaquetar y ejecutar", "label": "TypeScript: compilar y ejecutar", "label": "Build completo (Java + TypeScript)",
 
 ¿Qué parte de toda esta configuración es **personal** (solo para ti) y qué parte es **del proyecto** (la recibe cualquiera que abra el repositorio)?
 
@@ -125,7 +125,7 @@ TOTAL                         268.50 EUR
 
 | Lenguaje | Archivo fuente | Herramienta que lo traduce | Archivo generado | Cómo se ejecuta |
 |----------|----------------|----------------------------|------------------|-----------------|
-| Java       | `src/java/Factura.java` |   |   |   |
+| Java       | `src/java/Factura.java` | javac  |   |   |
 | TypeScript | `src/ts/factura.ts`     |   |   |   |
 
 **Opcional:** ¿has podido ejecutar los mismos archivos desde JupyterLab (paso 19)? ¿Por qué funciona en los dos IDE sin instalar nada más?
@@ -153,19 +153,45 @@ pega aquí
 Resultado de `npm outdated` (paso 17):
 
 ```
-pega aquí
+Package         Current    Wanted   Latest  Location                    Depended by
+@types/lodash  4.14.202  4.14.202  4.17.27  node_modules/@types/lodash  entorno-daw-dolores-aguilera
+@types/node    20.11.30  20.11.30   26.6.5  node_modules/@types/node    entorno-daw-dolores-aguilera
+lodash          4.17.20   4.17.20   4.18.1  node_modules/lodash         entorno-daw-dolores-aguilera
+typescript        5.4.5     5.4.5    7.0.2  node_modules/typescript     entorno-daw-dolores-aguilera
 ```
 
 Resultado de `npm audit` **antes** de actualizar lodash (solo el resumen final):
 
 ```
-pega aquí
+# npm audit report
+
+lodash  <=4.17.23
+Severity: high
+Command Injection in lodash - https://github.com/advisories/GHSA-35jh-r3h4-6jhm
+Regular Expression Denial of Service (ReDoS) in lodash - https://github.com/advisories/GHSA-29mw-wpgm-hmr9
+lodash vulnerable to Code Injection via `_.template` imports key names - https://github.com/advisories/GHSA-r5fr-rjxr-66jc
+lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit` - https://github.com/advisories/GHSA-f23m-r3pf-42rh
+Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions - https://github.com/advisories/GHSA-xxjr-mmjv-4gpg
+fix available via `npm audit fix --force`
+Will install lodash@4.18.1, which is outside the stated dependency range
+node_modules/lodash
+
+1 high severity vulnerability
+
+To address all issues, run:
+  npm audit fix --force
 ```
 
 Resultado de `npm audit` **después**:
 
 ```
-pega aquí
+
+changed 1 package, and audited 6 packages in 755ms
+
+found 0 vulnerabilities
+@Dolores281723 ➜ /workspaces/entorno-daw-dolores-aguilera (main) $ npm audit
+found 0 vulnerabilities
+@Dolores281723 ➜ /workspaces/entorno-daw-dolores-aguilera (main) $ 
 ```
 
 **Mi política de actualizaciones**: si este entorno lo usara un equipo de 5 personas durante todo el curso, ¿qué dejarías en automático y qué fijarías a mano? Justifícalo.
@@ -178,10 +204,10 @@ pega aquí
 
 Anota cualquier problema que hayas tenido y cómo lo resolviste (también si usaste un fragmento completo).
 
-> 
+> Ninguna incidencia
 
 ## 7. Reflexión final
 
 ¿Qué ventaja tiene describir el entorno «como código» frente a instalar cada programa a mano en tu ordenador? Piensa en un equipo con Mac y Windows.
 
-> 
+> Instalar todo de forma automática y sin fallos en lugar de hacerlo a mano paso a paso. Cualquier compañero se descarga las herramientas exactas en minutos y el equipo trabaja sobre el mismo molde idéntico
