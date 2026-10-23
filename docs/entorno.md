@@ -71,7 +71,9 @@ pega aquí
 - **Ajuste del proyecto** (paso 10). ¿Qué archivo se ha creado y qué contiene?
 
 ```
-pega aquí el contenido de .vscode/settings.json
+{
+    "editor.formatOnSave": true
+}
 ```
 
 - **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve?
@@ -90,7 +92,35 @@ pega aquí el contenido de .vscode/settings.json
 Salida completa de la tarea **Build completo** (paso 15):
 
 ```
-pega aquí
+=== FACTURA generada con Java 27 ===
+Dominio web anual              12.00 EUR
+Alojamiento web                59.90 EUR
+Logotipo corporativo          150.00 EUR
+-----------------------------------------
+Base imponible                221.90 EUR
+IVA (21 %)                     46.60 EUR
+TOTAL                         268.50 EUR
+ *  Las tareas reutilizarán el terminal, presione cualquier tecla para cerrarlo. 
+
+ *  Ejecutando tarea: npm run build && npm start 
+
+
+> plantilla-entorno-daw@1.0.0 build
+> tsc
+
+
+> plantilla-entorno-daw@1.0.0 start
+> node dist/factura.js
+
+=== FACTURA generada con Node.js v24.22.1 ===
+Dominio web anual              12.00 EUR
+Alojamiento web                59.90 EUR
+Logotipo corporativo          150.00 EUR
+-----------------------------------------
+Base imponible                221.90 EUR
+IVA (21 %)                     46.60 EUR
+TOTAL                         268.50 EUR
+ *  Las tareas reutilizarán el terminal, presione cualquier tecla para cerrarlo. 
 ```
 
 | Lenguaje | Archivo fuente | Herramienta que lo traduce | Archivo generado | Cómo se ejecuta |

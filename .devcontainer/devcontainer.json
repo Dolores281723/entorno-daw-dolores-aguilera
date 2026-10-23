@@ -11,9 +11,9 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-test",
-        "streetsidesoftware.code-spell-checker"
+        "vscjava.vscode-java-test"
       ]
     }
-  }
+  },
+  "postCreateCommand": "npm install"
 }
