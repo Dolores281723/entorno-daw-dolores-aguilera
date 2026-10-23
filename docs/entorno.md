@@ -16,12 +16,15 @@
 Resultado de `java -version` y `node -v` **antes** de instalar nada:
 
 ```
-pega aquí
+@Dolores281723 ➜ /workspaces/entorno-daw-dolores-aguilera (main) $ java -version
+bash: java: command not found
+@Dolores281723 ➜ /workspaces/entorno-daw-dolores-aguilera (main) $ node -v
+bash: node: command not found
 ```
 
 ¿Por qué crees que aparece ese mensaje? (relaciónalo con la diapositiva «Problemas habituales del entorno»)
 
-> 
+> El lenguaje no se añadió correctamente a la variable de entorno PATH
 
 ### 1.2. Después de la 1.ª reconstrucción (paso 5)
 
